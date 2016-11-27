@@ -95,13 +95,13 @@ public class SetServiceImpl implements SetService {
 	private boolean checkIfSetIsWon(TennisSet tennisSet, TennisGame currentGame) {
 		final TennisPlayer firstPlayer = tennisSet.getFirstPlayer();
 		final TennisPlayer secondPlayer = tennisSet.getSecondPlayer();
-		final boolean isDifferenceMatchWonBetweenPlayersReached = Math
+		boolean isDifferenceMatchWonBetweenPlayersReached = Math
 				.abs(firstPlayer.getNumberOfEarnedGame()
 						- secondPlayer.getNumberOfEarnedGame()) >= KataTennisConstants.MIN_DIFF_BETWEEN_GAMES_TO_WIN_SET;
-		final boolean isNumberOfWonMatchReached = (firstPlayer
+		boolean isNumberOfWonMatchReached = (firstPlayer
 				.getNumberOfEarnedGame() >= KataTennisConstants.NUMBER_OF_GAMES_TO_WIN_SET)
 				|| (secondPlayer.getNumberOfEarnedGame() >= KataTennisConstants.NUMBER_OF_GAMES_TO_WIN_SET);
-		final boolean isSetWonInTieBreak = (currentGame.isTieBreakGame() && Math
+		boolean isSetWonInTieBreak = (currentGame.isTieBreakGame() && Math
 				.abs(firstPlayer.getNumberOfEarnedGame()
 						- secondPlayer.getNumberOfEarnedGame()) == 1);
 		return ((isDifferenceMatchWonBetweenPlayersReached && isNumberOfWonMatchReached) || isSetWonInTieBreak);
