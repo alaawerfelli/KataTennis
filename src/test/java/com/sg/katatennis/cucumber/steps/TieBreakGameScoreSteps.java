@@ -42,11 +42,9 @@ public class TieBreakGameScoreSteps {
 	@When("^first player win '(\\d+)' points and second player has '(\\d+)' points$")
 	public void OneplayerPointsReachLimitToWinTieBreakGameAndHas2PointsGreaterThanHisOpponent(final int firstPlayerPoints,
 			final int secondPlayerPoints) {
-
 		for (int i = 0; i < firstPlayerPoints; i++) {
 			playerService.winBall(game.getFirstPlayer(), game);
 		}
-
 		for (int i = 0; i < secondPlayerPoints; i++) {
 			playerService.winBall(game.getSecondPlayer(), game);
 		}
